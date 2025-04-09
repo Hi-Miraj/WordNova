@@ -3,7 +3,46 @@ import { Github, Linkedin, Instagram, Globe, Youtube } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import TextEditor from '@/components/TextEditor';
 
-// ... keep existing code (socialLinks array with X logo SVG)
+const socialLinks = [
+  { 
+    icon: Github, 
+    href: 'https://github.com/Hi-Miraj', 
+    label: 'GitHub' 
+  },
+  { 
+    icon: Linkedin, 
+    href: 'https://linkedin.com/in/mirajshafek', 
+    label: 'LinkedIn' 
+  },
+  { 
+    icon: Instagram, 
+    href: 'https://instagram.com/miraj_shafek', 
+    label: 'Instagram' 
+  },
+  { 
+    icon: () => (
+      <svg 
+        viewBox="0 0 24 24" 
+        fill="currentColor" 
+        className="w-4 h-4 group-hover:scale-110 transition-transform"
+      >
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+      </svg>
+    ),
+    href: 'https://x.com/MirajShafek', 
+    label: 'X (Twitter)' 
+  },
+  { 
+    icon: Youtube, 
+    href: 'https://www.youtube.com/@Hi-Miraj', 
+    label: 'YouTube' 
+  },
+  { 
+    icon: Globe, 
+    href: 'https://mirajshafek.onrender.com', 
+    label: 'Personal Website' 
+  }
+];
 
 const Index: React.FC = () => {
   return (
