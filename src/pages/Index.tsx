@@ -1,49 +1,9 @@
-
 import React from 'react';
 import { Github, Linkedin, Instagram, Globe, Youtube } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import TextEditor from '@/components/TextEditor';
 
-const socialLinks = [
-  { 
-    icon: Github, 
-    href: 'https://github.com/Hi-Miraj', 
-    label: 'GitHub' 
-  },
-  { 
-    icon: Linkedin, 
-    href: 'https://linkedin.com/in/mirajshafek', 
-    label: 'LinkedIn' 
-  },
-  { 
-    icon: Instagram, 
-    href: 'https://instagram.com/miraj_shafek', 
-    label: 'Instagram' 
-  },
-  { 
-    icon: () => (
-      <svg 
-        viewBox="0 0 24 24" 
-        fill="currentColor" 
-        className="w-4 h-4 group-hover:scale-110 transition-transform"
-      >
-        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-      </svg>
-    ),
-    href: 'https://x.com/MirajShafek', 
-    label: 'X (Twitter)' 
-  },
-  { 
-    icon: Youtube, 
-    href: 'https://www.youtube.com/@Hi-Miraj', 
-    label: 'YouTube' 
-  },
-  { 
-    icon: Globe, 
-    href: 'https://mirajshafek.onrender.com', 
-    label: 'Personal Website' 
-  }
-];
+// ... keep existing code (socialLinks array with X logo SVG)
 
 const Index: React.FC = () => {
   return (
@@ -65,7 +25,7 @@ const Index: React.FC = () => {
       
       <footer className="py-4 text-center text-sm text-muted-foreground bg-black/20 backdrop-blur-lg">
         <div className="container relative">
-          <p className="mb-2">© {new Date().getFullYear()} NeuroType - Smart Writing Metrics</p>
+          <p className="mb-2">© {new Date().getFullYear()} WordNova - Smart Writing Metrics</p>
           <div className="flex space-x-3 absolute bottom-0 right-4">
             {socialLinks.map((link) => (
               <a 
@@ -75,7 +35,10 @@ const Index: React.FC = () => {
                 rel="noopener noreferrer" 
                 className="text-muted-foreground hover:text-neuro-blue transition-colors duration-300 group"
               >
-                {typeof link.icon === 'function' ? <link.icon /> : <link.icon className="w-4 h-4 group-hover:scale-110 transition-transform" strokeWidth={1.5} />}
+                {React.createElement(link.icon, { 
+                  className: typeof link.icon !== 'function' ? "w-4 h-4 group-hover:scale-110 transition-transform" : undefined,
+                  strokeWidth: typeof link.icon !== 'function' ? 1.5 : undefined
+                })}
                 <span className="sr-only">{link.label}</span>
               </a>
             ))}
